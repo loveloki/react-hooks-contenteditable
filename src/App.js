@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Editing from './Editing';
 
 function App() {
+  const [content, setContent] = useState("input some text...")
+
+  const handleChange = (event, text) => {
+    setContent(text)
+  }
+
+  const handleKeyDown = (event, text) => {
+
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Editing
+      focus
+      content={content}
+      onChange={handleChange}
+      onKeyDown={handleKeyDown}
+       />
   );
 }
 
